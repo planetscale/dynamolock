@@ -351,7 +351,7 @@ func (c *Client) storeLock(ctx context.Context, getLockOptions *getLockOptions) 
 		return nil, err
 	}
 
-	c.logger.Println(ctx, fmt.Sprintf("existing lock: %v", existingLock))
+	c.logger.Println(ctx, fmt.Sprintf("existing lock: %+v", existingLock))
 
 	var newLockData []byte
 	if getLockOptions.replaceData {
@@ -409,7 +409,7 @@ func (c *Client) storeLock(ctx context.Context, getLockOptions *getLockOptions) 
 		return l, err
 	}
 
-	c.logger.Println(ctx, fmt.Sprintf("get lock options: %v", getLockOptions))
+	c.logger.Println(ctx, fmt.Sprintf("get lock options: %+v", getLockOptions))
 
 	// we know that we didnt enter the if block above because it returns at the end.
 	// we also know that the existingLock.isPresent() is true
